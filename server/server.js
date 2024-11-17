@@ -12,12 +12,18 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
+const allowedOrigins = [
+  'https://bus-reservation-roan.vercel.app/', // Replace with your actual Vercel domain
+];
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON data
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 mongoose.set("debug", true);
-
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // If sending cookies
+}));
 // MongoDB connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/your_database_name", {
