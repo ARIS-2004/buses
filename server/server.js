@@ -26,10 +26,7 @@ app.use(cors({
 }));
 // MongoDB connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/your_database_name", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb://127.0.0.1:27017/your_database_name")
   .then(() => {
     console.log("MongoDB connected successfully.");
   })
