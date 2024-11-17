@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Elements
+  const BACKEND_URL = "https://buses-7t2y.onrender.com";
   const loginButton = document.getElementById("login-button");
   const logoutButton = document.getElementById("logout-button");
   const welcomeMessage = document.getElementById("user-welcome-message");
   const searchForm = document.getElementById("search-form");
   const bookingForm = document.getElementById("booking-form");
   const seatInfo = document.getElementById("seat-info");
-
+fetch(`${BACKEND_URL}/api/endpoint`)
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
   // Ensure the welcome message element exists before using it
   if (welcomeMessage) {
     const loggedInUser = localStorage.getItem("username");
