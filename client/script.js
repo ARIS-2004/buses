@@ -55,7 +55,7 @@ fetch(`${BACKEND_URL}/api/endpoint`)
       const username = event.target.username.value;
       const password = event.target.password.value;
       try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch(`${BACKEND_URL}/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username, password }),
@@ -87,7 +87,7 @@ fetch(`${BACKEND_URL}/api/endpoint`)
       const email = event.target.email.value;
       const password = event.target.password.value;
       try {
-        const response = await fetch("http://localhost:5000/signup", {
+        const response = await fetch(`${BACKEND_URL}/signup`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username, email, password }),
@@ -153,7 +153,7 @@ fetch(`${BACKEND_URL}/api/endpoint`)
       const tickets = "1"; // Retrieve the ticket details dynamically from your app
 
       // Send the request to the server to send the confirmation email
-      fetch("/send-confirmation-email", {
+      fetch(`${BACKEND_URL}/send-confirmation-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -181,7 +181,7 @@ fetch(`${BACKEND_URL}/api/endpoint`)
     };
 
     try {
-      const response = await fetch("/confirmBooking", {
+      const response = await fetch(`${BACKEND_URL}/confirmBooking`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
