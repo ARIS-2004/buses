@@ -92,7 +92,11 @@
       >
         Proceed to Payment
       </button>
-      <button id="sendConfirmationButton" class="btn btn-primary">
+      <button
+        id="sendConfirmationButton"
+        style="display: none"
+        class="cta-button"
+      >
         Send Confirmation
       </button>
     </section>
@@ -258,6 +262,8 @@
             description: `Booking for ${bookingDetails.name}`,
             handler: function (response) {
               alert("Payment Successful: " + response.razorpay_payment_id);
+              document.getElementById("sendConfirmationButton").style.display =
+                "inline-block";
             },
             prefill: {
               name: bookingDetails.name,
