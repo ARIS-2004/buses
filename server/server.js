@@ -20,9 +20,7 @@ mongoose.set("debug", true);
 
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Atlas connected successfully."))
   .catch((err) => console.error("MongoDB connection error:", err));
 
